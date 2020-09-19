@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: center;
+}
+
+input {
+  width: 90%;
+  margin: 0.5rem auto;
+  padding: 1rem 9px;
+  color: rgba(0, 0, 0, 0.7);
+  outline: none;
+  border-radius: 3px;
+  border: transparent;
+  font-size: 1.2rem;
+}
+
+.buttonGrid {
+  margin: 1rem 0px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+}

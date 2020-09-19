@@ -1,0 +1,58 @@
+:root {
+  --display: none;
+}
+
+.container {
+  height: 43vh;
+  overflow: scroll;
+  margin: 1rem;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.historyCards {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  background-color: white;
+  padding: 1rem;
+  margin: 0.5rem auto;
+  border-radius: 3px;
+}
+
+.cardComponent {
+  display: flex;
+  align-items: center;
+}
+
+.cardComponent:hover {
+  --display: flex;
+}
+
+.options {
+  display: var(--display);
+}
+
+.null {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2776f5;
+}
+
+@media only screen and (max-width: 600px) {
+  .null {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #2776f5;
+  }
+}

@@ -1,0 +1,121 @@
+*,
+::before,
+::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --color: #0e62e9;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #373b44, #4286f4);
+}
+
+.income {
+  border-right: 9px solid green;
+}
+
+.expense {
+  border-right: 9px solid red;
+}
+
+i {
+  font-size: 1.8rem !important;
+  margin: 5px;
+}
+
+.edit {
+  color: blue;
+}
+
+.trash {
+  color: red;
+}
+
+.header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #053a8f;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: var(--color);
+}
+
+.title.r {
+  --color: red;
+}
+
+.title.g {
+  --color: green;
+}
+
+.title.amount {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.hr {
+  border: 1px solid rgb(61, 61, 61);
+}
+
+.hr.h {
+  margin: auto 9px;
+  width: 1px;
+  height: 5rem;
+}
+
+.hr.v {
+  height: 1px;
+  margin: 9px auto;
+  width: 90%;
+}
+
+.text {
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+button {
+  padding: 12px 18px;
+  outline: none;
+  background-color: cornflowerblue;
+  border-radius: 3px;
+  border: transparent;
+  color: white;
+  font-size: 0.9rem;
+}
+
+button.r {
+  background-color: red;
+}
+
+button.g {
+  background-color: green;
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem;
+    color: #053a8f;
+  }
+  .title {
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: var(--color);
+  }
+}
