@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./History.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteIncome, deleteExpense } from "../Redux/Actions";
+import { deleteIncome, deleteExpense, editForm } from "../Redux/Actions";
 
 export const History = () => {
   const dispatch = useDispatch();
   const history = useSelector((state) => state.transactions);
+
   return (
     <div className={styles.container}>
       <span className="title">Transactions</span>
@@ -19,9 +20,13 @@ export const History = () => {
             </div>
             <div className={styles.options}>
               <i
+                className="fa fa-pencil pencil"
+                onClick={() => dispatch(editForm(transaction))}
+              ></i>
+              <i
                 className="fa fa-trash trash"
                 onClick={() => {
-                  if (transaction.type === "income")
+                  if (transaction.type === "Income")
                     dispatch(deleteIncome(transaction.uid));
                   else dispatch(deleteExpense(transaction.uid));
                 }}

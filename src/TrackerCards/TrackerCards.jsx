@@ -7,6 +7,12 @@ export const TrackerCards = () => {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
+        <span className="title b">Balance</span>
+        <br />
+        <span className="title b amount">₹{cardsData.balance}</span>
+      </div>
+      <div className={styles.fillRest}></div>
+      <div className={styles.card}>
         <span className="title g">Income</span>
         <br />
         <span className="title g amount">₹{cardsData.income}</span>

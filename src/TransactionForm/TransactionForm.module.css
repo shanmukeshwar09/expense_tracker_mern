@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-input {
+.input {
   width: 90%;
   margin: 0.5rem auto;
   padding: 1rem 9px;
@@ -16,10 +16,18 @@ input {
   font-size: 1.2rem;
 }
 
+.select {
+  background-color: white;
+}
+
+.button {
+  padding: 12px 2rem;
+}
+
 .buttonGrid {
-  margin: 1rem 0px;
   display: flex;
   justify-content: space-evenly;
+  width: 100%;
 }
 
 @media only screen and (max-width: 600px) {

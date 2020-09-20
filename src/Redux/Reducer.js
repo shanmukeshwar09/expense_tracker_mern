@@ -4,6 +4,9 @@ import {
   DELETEEXPENSE,
   DELETEINCOME,
   LOCALSTORAGEKEY,
+  EDITFORM,
+  CLEARFORM,
+  UPDATEHISTORY,
 } from "./Constants";
 
 const localData = localStorage.getItem(LOCALSTORAGEKEY);
@@ -12,13 +15,15 @@ let initialState = {
   expense: 0,
   income: 0,
   balance: 0,
+  currentAction: "ADD",
+  editPayload: {},
   transactions: [],
 };
 
 if (localData) initialState = JSON.parse(localData);
 
 export default (state = initialState, action) => {
-  const { uid, amount, description } = action.payload || {};
+  const { type, uid, amount, description } = action.payload || {};
 
   switch (action.type) {
     case ADDEXPENSE:
@@ -28,7 +33,7 @@ export default (state = initialState, action) => {
         balance: state.balance - amount,
         transactions: [
           ...state.transactions,
-          { uid, type: "expense", amount, description },
+          { uid, type: "Expense", amount, description },
         ],
       };
 
@@ -39,7 +44,7 @@ export default (state = initialState, action) => {
         balance: state.balance + amount,
         transactions: [
           ...state.transactions,
-          { uid, type: "income", amount, description },
+          { uid, type: "Income", amount, description },
         ],
       };
 
@@ -69,6 +74,45 @@ export default (state = initialState, action) => {
           (transaction) => transaction.uid !== uid
         ),
       };
+    case UPDATEHISTORY:
+      const newState = { ...state };
+      const parseAmount = parseInt(amount);
+      if (state.editPayload.type === "Income") {
+        if (type === "Income") {
+          newState.balance =
+            state.balance - state.editPayload.amount + parseAmount;
+          newState.income =
+            state.income - state.editPayload.amount + parseAmount;
+        } else {
+          newState.balance =
+            state.balance - state.editPayload.amount - parseAmount;
+          newState.income = state.income - parseAmount;
+          newState.expense = state.expense + parseAmount;
+        }
+      } else {
+        if (type === "Income") {
+          newState.balance =
+            state.balance + state.editPayload.amount + parseAmount;
+          newState.income = state.income + parseAmount;
+          newState.expense = state.expense - parseAmount;
+        } else {
+          newState.balance =
+            state.balance + state.editPayload.amount - parseAmount;
+          newState.expense =
+            state.expense - state.editPayload.amount + parseAmount;
+        }
+      }
+      newState.transactions = newState.transactions.map((t) =>
+        t.uid !== state.editPayload.uid
+          ? t
+          : { ...t, description, amount: parseAmount, type }
+      );
+
+      return newState;
+    case EDITFORM:
+      return { ...state, currentAction: "EDIT", editPayload: action.payload };
+    case CLEARFORM:
+      return { ...state, currentAction: "ADD", editPayload: {} };
     default:
       return state;
   }

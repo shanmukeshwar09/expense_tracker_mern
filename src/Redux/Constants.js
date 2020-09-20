@@ -1,9 +1,12 @@
 export const ADDEXPENSE = "ADDEXPENSE";
-export const EDITEXPENSE = "EDITEXPENSE";
 export const DELETEEXPENSE = "DELETEEXPENSE";
 
 export const ADDINCOME = "ADDINCOME";
-export const EDITINCOME = "EDITINCOME";
 export const DELETEINCOME = "DELETEINCOME";
+
+export const EDITFORM = "EDITFORM";
+export const CLEARFORM = "CLEARFORM";
+
+export const UPDATEHISTORY = "UPDATEHISTORY";
 
 export const LOCALSTORAGEKEY = "LOCALSTORAGEKEY";

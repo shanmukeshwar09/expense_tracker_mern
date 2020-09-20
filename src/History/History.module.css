@@ -3,9 +3,9 @@
 }
 
 .container {
-  height: 43vh;
   overflow: scroll;
-  margin: 1rem;
+  width: 50%;
+  text-align: center;
 }
 
 .container::-webkit-scrollbar {
@@ -36,23 +36,15 @@
 }
 
 .null {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: bold;
   color: #2776f5;
 }
 
 @media only screen and (max-width: 600px) {
-  .null {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #2776f5;
+  .container {
+    overflow: scroll;
+    width: 100%;
+    text-align: center;
   }
 }
